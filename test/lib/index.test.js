@@ -46,6 +46,7 @@ describe( 'lib/index', function() {
         it( 'use lov when joi is not present', function() {
 
             requireBlocker.block( 'joi' );
+            requireBlocker.block( 'joi-browser' );
 
             let builder = index.builder();
 
@@ -65,7 +66,7 @@ describe( 'lib/index', function() {
 
         it( 'fail: when engines do not exist', function() {
 
-            requireBlocker.block( 'joi', 'lov' );
+            requireBlocker.block( 'joi', 'joi-browser', 'lov' );
 
             expect( index.builder.bind( null ) ).to.throw( 'cannot find validation engine' );
         });
